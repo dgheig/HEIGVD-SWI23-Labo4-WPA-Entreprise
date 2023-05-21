@@ -68,6 +68,20 @@ Pour réussir votre capture, vous pouvez procéder de la manière suivante :
   ```
 
 - Comparer votre capture au processus d’authentification donné en théorie (n’oubliez pas les captures d'écran pour illustrer vos comparaisons !). En particulier, identifier les étapes suivantes :
+	
+	> Nous avons pu faire notre capture mais elle n'est pas idéale:
+	> ![wpa_connection](img/wpa_connection.png)
+	>
+	> Il manque par exemple la "Request, Identity", certains paquets sont marqués comme "Ignored Unkown Record" (on suppose qu'il s'agit du "Server Hello, Certificate, Server Hello Done " de la capture fournie). Nous avons donc utilisé la capture fournie pour les explications.
+	>
+	> Aussi, nous avons appliqué un filtre par défaut pour ne voir que les paquets intéressants
+	>
+	> ```bash
+	> (wlan.addr == 30:74:96:70:df:32) && ((wlan.fc.type == 0 && (wlan.fc.subtype == 0x0 || wlan.fc.subtype == 0x1 || wlan.fc.subtype == 0x2 || wlan.fc.subtype == 0xb))) || tls || eapol
+	> ```
+	>
+	> 
+	
 	- Requête et réponse d’authentification système ouvert
  	- Requête et réponse d’association (ou reassociation)
 	- Négociation de la méthode d’authentification entreprise (TLS?, TTLS?, PEAP?, LEAP?, autre?)
